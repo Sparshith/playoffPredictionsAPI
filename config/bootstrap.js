@@ -10,7 +10,7 @@
  */
 
 module.exports.bootstrap = function(done) {
-
+  process.env.TZ = 'America/New_York';
   // By convention, this is a good place to set up fake data during development.
 
   // Don't forget to trigger `done()` when this bootstrap function's logic is finished.

@@ -27,8 +27,10 @@ module.exports = {
     var data = req.body;
     var username = data.username;
     var password = data.password;
-    return user.create(username, md5(password)).then(()=>{
-      res.ok();
+    return user.create(username, md5(password)).then((response)=>{
+      res.ok({
+				userHash: response.id
+			});
     });
   }
 };

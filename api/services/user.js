@@ -14,7 +14,7 @@ module.exports = {
     var newUser = await User.create({
       username: username,
       password: password
-    });
+    }).fetch();
     return newUser;
   }
 }

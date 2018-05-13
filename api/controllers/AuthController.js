@@ -11,7 +11,7 @@ module.exports = {
   checkUsername: function(req, res) {
     var data = req.query;
     var username = data.username;
-    return user.checkIfUsernameExists(username).then(function(doesUsernameExist){
+    user.checkIfUsernameExists(username).then(function(doesUsernameExist){
       if(doesUsernameExist) {
         res.ok({
           status: 'already_exists'
@@ -32,6 +32,22 @@ module.exports = {
 				userHash: response.id
 			});
     });
+  },
+  login: function(req, res) {
+    var data = req.body;
+    var username = data.username;
+    var password = data.password;
+    User.findOne({
+      username: username,
+      password: md5(password)
+    }).then(function(record){
+      if(record) {
+        return res.ok({
+          status: 'found',
+          userHash: record.id
+        })
+      }
+    })
   }
 };
 

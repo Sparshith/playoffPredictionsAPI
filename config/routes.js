@@ -45,6 +45,7 @@ module.exports.routes = {
   //  ╩ ╩╩  ╩  ╚═╝╝╚╝═╩╝╩  ╚═╝╩╝╚╝ ╩ ╚═╝
   'GET //checkUsername': { controller: 'Auth', action: 'checkUsername', skipAssets: true},
   'POST //newUser': { controller: 'Auth', action: 'create', skipAssets: true},
+  'POST //loginUser': { controller: 'Auth', action: 'login', skipAssets: true},
   'GET //upcomingGames': { controller: 'Conversation', action: 'fetchUpcomingGames', skipAssets: true},
   'POST //logPrediction': { controller: 'Conversation', action: 'logPrediction', skipAssets: true},
 
